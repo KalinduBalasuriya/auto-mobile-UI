@@ -1,0 +1,99 @@
+<div
+  *ngIf="isModalOpen"
+  class="modal-overlay fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50"
+>
+  <div class="modal bg-white rounded-lg shadow-lg w-full max-w-lg p-8">
+    <form (ngSubmit)="submitForm()" class="space-y-6">
+      <h2 class="text-2xl font-semibold text-center">Add New Car</h2>
+
+      <div class="space-y-4">
+        <div>
+          <label
+            for="registrationNumber"
+            class="block text-sm font-medium text-gray-700"
+            >Car Registration Number</label
+          >
+          <input
+            id="registrationNumber"
+            [(ngModel)]="car.registrationNumber"
+            name="registrationNumber"
+            required
+            class="mt-1 p-3 w-full border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-primary focus:border-primary"
+          />
+        </div>
+
+        <div>
+          <label for="model" class="block text-sm font-medium text-gray-700"
+            >Car Model</label
+          >
+          <input
+            id="model"
+            [(ngModel)]="car.model"
+            name="model"
+            required
+            class="mt-1 p-3 w-full border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-primary focus:border-primary"
+          />
+        </div>
+
+        <div>
+          <label for="color" class="block text-sm font-medium text-gray-700"
+            >Car Color</label
+          >
+          <input
+            id="color"
+            [(ngModel)]="car.color"
+            name="color"
+            required
+            class="mt-1 p-3 w-full border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-primary focus:border-primary"
+          />
+        </div>
+
+        <div>
+          <label for="owner" class="block text-sm font-medium text-gray-700"
+            >Vehicle Owner</label
+          >
+          <input
+            id="owner"
+            [(ngModel)]="car.owner"
+            name="owner"
+            required
+            class="mt-1 p-3 w-full border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-primary focus:border-primary"
+          />
+        </div>
+
+        <div>
+          <label for="job" class="block text-sm font-medium text-gray-700"
+            >Job</label
+          >
+          <select
+            id="job"
+            [(ngModel)]="car.job"
+            name="job"
+            required
+            class="mt-1 p-3 w-full border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-primary focus:border-primary"
+          >
+            <option *ngFor="let job of jobOptions" [value]="job.value">
+              {{ job.label }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div class="flex justify-between items-center gap-4">
+        <button
+          type="submit"
+          class="w-full py-2 bg-gradient-to-r from-basic-basicGreen to-basic-basicLightGreen text-white font-semibold rounded-md shadow-md transition-transform transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary"
+        >
+          Add Car
+        </button>
+        <button
+          type="button"
+          (click)="closeModal()"
+          class="w-full py-2 bg-gradient-to-r from-basic-basicGreen to-basic-basicLightGreen text-white font-semibold rounded-md shadow-md transition-transform transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary"
+        >
+          Close
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
